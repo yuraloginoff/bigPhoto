@@ -1,24 +1,23 @@
-# Sliderify
+# bigPhoto
 
-Sliderify is a simple jQuery image slider plugin.
+bigPhoto is a jQuery plugin to proportionally stretch images to their ancestor's width.
+The width can be set in percents or in pixels. In case of pixels images become responsive.
 
-You can see it in action on this [demo page](http://yuraloginoff.com/sliderify/)
-
+You can see it in action on this [demo page](http://yuraloginoff.com/bigphoto/)
 
 ## How to install
 
 1. Add CSS to the `<head>`:
 ```
-	<link rel="stylesheet" href="css/jquery.sliderify.css">
-	<link rel="stylesheet" href="css/theme.css">
+	<link rel="stylesheet" href="css/jquery.bigphoto.css">
 ```
 
 2. Add JavaScript before the `</body>`:
 ```
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/jquery.sliderify.js"></script>
+	<script src="js/jquery.bigphoto.js"></script>
 	<script>
-		$("#slider").sliderify();
+		$("img.bigphoto-img").bigPhoto();
 	</script>
 ```
 
@@ -26,32 +25,20 @@ You can see it in action on this [demo page](http://yuraloginoff.com/sliderify/)
 
 The following type of markup structure is needed to make the plugin work:
 
-	<div id="slider">
-		<ul>
-			<li><img src="img/01.jpg" alt="Image"></li>
-		</ul>
+	<div class="bigphoto-wrap">
+		<img src="img/01.jpg" class="bigphoto-img">
 	</div>
 
-
-## CSS
-Sliderify plugin is provided with 2 css files: `jquery.sliderify.css` and `theme.css`. You can edit `theme.css` to change default styling. `jquery.sliderify.css` contains some kind of plugin's core so edit it at your own risk.
-
-You should specify image container width: `.slider { width: 500px; }`
-
-Also you can redefine CSS class names. See below.
-
-
 ## JavaScript
-Running this script will apply the Sliderify plugin DOM element with a #slider id.
+Running this script will apply the bigPhoto plugin to images with class "bigphoto-img".
 ```javascript
-$("#slider").sliderify();
+$("img.bigphoto-img").bigPhoto();
 ```
 
-You can pass an object to sliderify function to redefine default settings, f.i.:
+You can pass an object to bigPhoto function to redefine default settings, f.i.:
 ```javascript
 $("#slider").sliderify({
-	speed : 500,
-	transitionEffect : "fade"
+	imageWrapperWidth : "100%"
 });
 ```
 
@@ -59,19 +46,9 @@ Here is a list of all settings that you can redefine.
 
 Setting | Default | Description
 --- | --- | ---
-navigationClass | "sliderify-navigation" | CSS class of navigation elements container.
-navigationElements | "button" | Navigation element itself. You can change it f.i. to "a" to get `<a href="#">`.
-navigationElementsClass | "sliderify-navigation-element" | CSS class of navigation elements.
-buttonBackText | "Prev" | Text of "backward" navigation element.
-buttonForwardText | "Next" | Text of "forward" navigation element.
-addPagination | true | Set to `false` if don't want the pagination element.
-paginationClass | "sliderify-paginator" | CSS class of pagination element.
-speed | 400 | Animation speed.
-easing | "swing" | Easing effect for sliding animation effect. You can change it f.i. to "linear".
-transitionEffect | "slide" | Visual animation effect. Another available option is **"fade"**.
-showStatus | true | Displays status textual element like "1 of 4" to indicate current image and total amount. Change to `false` if you don't want that.
-statusText | " of "| Text for status. You can change it f.i. to " / ".
-statusClass | "sliderify-status" | CSS class of status element.
+imageWrapperWidth | "100%" | With this setting you can set the parent width. All images will stretch to it. If you set width in pixels, f.i. "600px", images will be responsive.
+wrapClass | "bigphoto-wrap" | Images parent class name. Don't foreget also to change it in css file!
+onWindowResize | true | Set to false if you don't wang images to be stretched on window resize.
 
 
 ## Credits
