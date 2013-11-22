@@ -37,7 +37,7 @@ $("img.bigphoto-img").bigPhoto();
 
 You can pass an object to bigPhoto function to redefine default settings, f.i.:
 ```javascript
-$("#slider").sliderify({
+$("#slider").bigPhoto({
 	imageWrapperWidth : "100%"
 });
 ```
